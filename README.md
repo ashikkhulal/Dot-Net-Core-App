@@ -18,6 +18,7 @@ Clone the repository
 Application has been upgraded for .Net Core 3 preview and Razor Components on a feature branch.
 Master is .Net Core 2.2 - 
 
+
 # Build and Test
 Run .\build.ps1 OR click_to_build.bat
 

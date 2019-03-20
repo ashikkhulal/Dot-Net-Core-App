@@ -54,7 +54,10 @@ Function UnitTests{
 
 	try {
 		exec {
-			& dotnet test -nologo -v $verbosity --logger:trx --results-directory $test_dir --no-build --no-restore --configuration $projectConfig
+			& dotnet test -nologo -v $verbosity --logger:trx `
+			--results-directory $test_dir --no-build `
+			--no-restore --configuration $projectConfig `
+			--collect:"Code Coverage" 
 		}
 	}
 	finally {
@@ -67,7 +70,10 @@ Function IntegrationTest{
 
 	try {
 		exec {
-			& dotnet test -nologo -v $verbosity --logger:trx --results-directory $test_dir --no-build --no-restore --configuration $projectConfig
+			& dotnet test -nologo -v $verbosity --logger:trx `
+			--results-directory $test_dir --no-build `
+			--no-restore --configuration $projectConfig `
+			--collect:"Code Coverage" 
 		}
 	}
 	finally {

@@ -19,7 +19,8 @@ namespace ClearMeasure.OnionDevOpsArchitecture.DataAccess.Mappings
             var connectionString = _config.GetConnectionString();
             optionsBuilder
                 .UseSqlServer(connectionString)
-                .ConfigureWarnings(warnings => warnings.Throw(RelationalEventId.QueryClientEvaluationWarning));
+                .ConfigureWarnings(warnings => 
+                    warnings.Throw(RelationalEventId.QueryClientEvaluationWarning));
 
             base.OnConfiguring(optionsBuilder);
         }

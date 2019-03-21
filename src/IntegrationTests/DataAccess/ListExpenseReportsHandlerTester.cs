@@ -1,7 +1,6 @@
 ﻿using ClearMeasure.OnionDevOpsArchitecture.Core.Features.BrowseExpenseReports;
 using ClearMeasure.OnionDevOpsArchitecture.Core.Model;
 using ClearMeasure.OnionDevOpsArchitecture.DataAccess;
-using Core.Model;
 using NUnit.Framework;
 using Shouldly;
 

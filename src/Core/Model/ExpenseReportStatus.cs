@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Core.Model
+namespace ClearMeasure.OnionDevOpsArchitecture.Core.Model
 {
     public class ExpenseReportStatus
 	{

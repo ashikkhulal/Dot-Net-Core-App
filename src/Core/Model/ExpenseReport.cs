@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using Core.Model;
 
 namespace ClearMeasure.OnionDevOpsArchitecture.Core.Model
 {
@@ -51,24 +49,5 @@ namespace ClearMeasure.OnionDevOpsArchitecture.Core.Model
         {
             return Id.GetHashCode();
         }
-
-        private sealed class IdEqualityComparer : IEqualityComparer<ExpenseReport>
-        {
-            public bool Equals(ExpenseReport x, ExpenseReport y)
-            {
-                if (ReferenceEquals(x, y)) return true;
-                if (ReferenceEquals(x, null)) return false;
-                if (ReferenceEquals(y, null)) return false;
-                if (x.GetType() != y.GetType()) return false;
-                return x.Id.Equals(y.Id);
-            }
-
-            public int GetHashCode(ExpenseReport obj)
-            {
-                return obj.Id.GetHashCode();
-            }
-        }
-
-        public static IEqualityComparer<ExpenseReport> IdComparer { get; } = new IdEqualityComparer();
     }
 }

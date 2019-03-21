@@ -1,5 +1,4 @@
 ﻿using ClearMeasure.OnionDevOpsArchitecture.Core.Model;
-using Core.Model;
 using NUnit.Framework;
 using Shouldly;
 
@@ -13,8 +12,8 @@ namespace ClearMeasure.OnionDevOpsArchitecture.IntegrationTests.DataAccess.Mappi
             new DatabaseTester().Clean();
             var report = new ExpenseReport
             {
-                Title = "TestExpens",
-                Description = "This is an ",
+                Title = "TestExpense",
+                Description = "This is an expense",
                 Number = "123",
                 Status = ExpenseReportStatus.Cancelled
             };

@@ -27,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI", "UI\UI.csproj", "{0896
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.AppStartup", "Core.AppStartup\Core.AppStartup.csproj", "{59114AC8-A32F-4C88-8E33-E9FA3115ED49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Database.csproj", "{BA1D8350-99C0-490A-B9D3-23948D852A95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database", "Database\Database.csproj", "{BA1D8350-99C0-490A-B9D3-23948D852A95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcceptanceTests", "AcceptanceTests\AcceptanceTests.csproj", "{F5428B2B-785E-4833-AAE0-C27DECF4D01B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{BA1D8350-99C0-490A-B9D3-23948D852A95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA1D8350-99C0-490A-B9D3-23948D852A95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA1D8350-99C0-490A-B9D3-23948D852A95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5428B2B-785E-4833-AAE0-C27DECF4D01B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5428B2B-785E-4833-AAE0-C27DECF4D01B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5428B2B-785E-4833-AAE0-C27DECF4D01B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5428B2B-785E-4833-AAE0-C27DECF4D01B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

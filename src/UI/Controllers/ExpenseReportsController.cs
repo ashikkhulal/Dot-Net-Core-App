@@ -1,6 +1,8 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
+using System.Linq;
 using ClearMeasure.OnionDevOpsArchitecture.Core;
-using ClearMeasure.OnionDevOpsArchitecture.Core.Features.BrowseExpenseReports;
+using ClearMeasure.OnionDevOpsArchitecture.Core.Features.ExpenseReports;
 using ClearMeasure.OnionDevOpsArchitecture.Core.Model;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,13 +18,31 @@ namespace ClearMeasure.OnionDevOpsArchitecture.UI.Controllers
             _bus = bus;
         }
 
+        [Route("")]
         public IActionResult Index()
         {
-            string connectionString = ConfigurationManager.AppSettings["ConnectionString"];
             var command = new ListExpenseReportsCommand();
             ExpenseReport[] reports = _bus.Send(command);
-            reports[0].Description = connectionString;
-            return View(reports);
+            var orderedReports = reports.OrderBy(report => report.Number);
+            return View(orderedReports.ToArray());
+        }
+
+        [Route("New"), HttpGet]
+        public IActionResult New()
+        {
+            return View();
+        }
+
+        [Route("New"), HttpPost]
+        public IActionResult New(ExpenseReport report)
+        {
+            if (ModelState.IsValid && report.Number.Length == 6)
+            {
+                _bus.Send(new NewExpenseReportCommand(report));
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction();
         }
     }
 }

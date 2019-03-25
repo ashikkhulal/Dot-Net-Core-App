@@ -1,0 +1,30 @@
+﻿@model ClearMeasure.OnionDevOpsArchitecture.Core.Model.ExpenseReport
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>New Expense Report</title>
+</head>
+<body>
+    <div>
+        @Html.ValidationSummary()
+        @using (Html.BeginForm())
+        {
+            <div>
+                @Html.LabelFor(report => report.Number)
+                @Html.EditorFor(report => report.Number)
+            </div>
+            <div>
+                @Html.LabelFor(report => report.Title)
+                @Html.EditorFor(report => report.Title)
+            </div>
+            <div>
+                @Html.LabelFor(report => report.Description)
+                @Html.EditorFor(report => report.Description)
+            </div>
+            <button type="submit">Save</button>
+        }
+    </div>
+</body>
+</html>

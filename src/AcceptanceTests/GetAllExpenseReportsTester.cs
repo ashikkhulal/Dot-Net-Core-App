@@ -18,17 +18,27 @@ namespace ClearMeasure.OnionDevOpsArchitecture.AcceptanceTests
         [SetUp]
         public void Setup()
         {
-            appURL = "http://localhost:54626/api/values";
+            appURL = "http://localhost:54626";
             driver = new ChromeDriver(".");
         }
 
         [Test]
         public void Test1()
         {
-            
             driver.Navigate().GoToUrl(appURL + "/");
-            Debug.WriteLine(driver.PageSource);
-            ExpenseReport[] reports = JsonConvert.DeserializeObject<ExpenseReport[]>(driver.PageSource);
+            var addNewLink = driver.FindElement(By.LinkText("Add New"));
+            addNewLink.Click();
+            var numberTextBox = driver.FindElement(By.Name(nameof(ExpenseReport.Number)));
+            var titleTextBox = driver.FindElement(By.Name(nameof(ExpenseReport.Title)));
+            var descriptionTextBox = driver.FindElement(By.Name(nameof(ExpenseReport.Description)));
+            
+            numberTextBox.SendKeys("000000");
+            titleTextBox.SendKeys("some title");
+            descriptionTextBox.SendKeys("some desc");
+
+            var submitButton = driver.FindElement(By.TagName("button"));
+            submitButton.Click();
+
         }
     }
 }

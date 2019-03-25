@@ -1,4 +1,5 @@
-﻿@model ClearMeasure.OnionDevOpsArchitecture.Core.Model.ExpenseReport[]
+﻿@using ClearMeasure.OnionDevOpsArchitecture.Core.Model
+@model ClearMeasure.OnionDevOpsArchitecture.Core.Model.ExpenseReport[]
 
 <!DOCTYPE html>
 
@@ -8,7 +9,32 @@
 </head>
 <body>
 <div>
-    @Html.DisplayForModel()
+    <div>
+        @Html.ActionLink("Add New", "New")
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th>@Html.NameFor(reports => new ExpenseReport().Id)</th>
+            <th>@Html.NameFor(reports => new ExpenseReport().Number)</th>
+            <th>@Html.NameFor(reports => new ExpenseReport().Title)</th>
+            <th>@Html.NameFor(reports => new ExpenseReport().Description)</th>
+            <th>@Html.NameFor(reports => new ExpenseReport().Status)</th>
+        </tr>
+        </thead>
+        <tbody>
+        @for (int i = 0; i < Model.Length; i++)
+        {
+            <tr>
+                <td>@Html.DisplayFor(reports => reports[i].Id)</td>
+                <td>@Html.DisplayFor(reports => reports[i].Number)</td>
+                <td>@Html.DisplayFor(reports => reports[i].Title)</td>
+                <td>@Html.DisplayFor(reports => reports[i].Description)</td>
+                <td>@Html.DisplayFor(reports => reports[i].FriendlyStatus)</td>
+            </tr>
+        }
+        </tbody>
+    </table>
 </div>
 </body>
 </html>

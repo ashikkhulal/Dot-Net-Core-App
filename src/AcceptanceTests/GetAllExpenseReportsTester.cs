@@ -23,6 +23,8 @@ namespace ClearMeasure.OnionDevOpsArchitecture.AcceptanceTests
         public void Teardown()
         {
             driver.Close();
+            driver.Quit();
+            driver.Dispose();
         }
 
         [Test]

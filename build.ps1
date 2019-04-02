@@ -5,7 +5,9 @@ $base_dir = resolve-path .\
 $source_dir = "$base_dir\src"
 $unitTestProjectPath = "$source_dir\UnitTests"
 $integrationTestProjectPath = "$source_dir\IntegrationTests"
+$acceptanceTestProjectPath = "$source_dir\AcceptanceTests"
 $uiProjectPath = "$source_dir\UI"
+$jobProjectPath = "$source_dir\Job"
 $databaseProjectPath = "$source_dir\Database"
 $projectConfig = $env:BuildConfiguration
 $version = $env:Version
@@ -110,7 +112,13 @@ Function Pack{
 		& .\tools\octopack\Octo.exe pack --id "$projectName.Database" --version $version --basePath $databaseProjectPath --outFolder $build_dir
 	}
 	exec{
+		& .\tools\octopack\Octo.exe pack --id "$projectName.Job" --version $version --basePath $jobProjectPath --outFolder $build_dir
+	}
+	exec{
 		& .\tools\octopack\Octo.exe pack --id "$projectName.IntegrationTests" --version $version --basePath $integrationTestProjectPath --outFolder $build_dir
+	}
+	exec{
+		& .\tools\octopack\Octo.exe pack --id "$projectName.AcceptanceTests" --version $version --basePath $acceptanceTestProjectPath --outFolder $build_dir
 	}
 }
 

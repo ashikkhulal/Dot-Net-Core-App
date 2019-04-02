@@ -1,4 +1,4 @@
-﻿using ClearMeasure.OnionDevOpsArchitecture.Core.Features.BrowseExpenseReports;
+﻿using ClearMeasure.OnionDevOpsArchitecture.Core.Features.ExpenseReports;
 using ClearMeasure.OnionDevOpsArchitecture.Core.Model;
 using ClearMeasure.OnionDevOpsArchitecture.DataAccess;
 using NUnit.Framework;

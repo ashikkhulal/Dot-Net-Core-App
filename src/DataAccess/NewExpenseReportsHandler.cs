@@ -6,19 +6,21 @@ using ClearMeasure.OnionDevOpsArchitecture.DataAccess.Mappings;
 
 namespace ClearMeasure.OnionDevOpsArchitecture.DataAccess
 {
-    public class ListExpenseReportsHandler : IRequestHandler<ListExpenseReportsCommand, ExpenseReport[]>
+    public class NewExpenseReportsHandler : IRequestHandler<NewExpenseReportCommand, ExpenseReport>
     {
         private DataContext _context;
 
-        public ListExpenseReportsHandler(DataContext context)
+        public NewExpenseReportsHandler(DataContext context)
         {
             _context = context;
         }
 
-        public ExpenseReport[] Handle(ListExpenseReportsCommand request)
+
+        public ExpenseReport Handle(NewExpenseReportCommand request)
         {
-            ExpenseReport[] reports = _context.Set<ExpenseReport>().ToArray();
-            return reports;
+            _context.Add(request.Report);
+            _context.SaveChanges();
+            return request.Report;
         }
     }
 }

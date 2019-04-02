@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Configuration;
 using ClearMeasure.OnionDevOpsArchitecture.Core;
-using ClearMeasure.OnionDevOpsArchitecture.Core.Features.BrowseExpenseReports;
+using ClearMeasure.OnionDevOpsArchitecture.Core.Features.ExpenseReports;
 using ClearMeasure.OnionDevOpsArchitecture.Core.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

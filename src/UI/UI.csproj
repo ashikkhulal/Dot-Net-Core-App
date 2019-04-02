@@ -18,6 +18,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\ExpenseReports\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
   </ItemGroup>
@@ -31,6 +35,18 @@
     <Reference Include="System.Configuration.ConfigurationManager">
       <HintPath>..\packages\system.configuration.configurationmanager\4.5.0\ref\netstandard2.0\System.Configuration.ConfigurationManager.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\ExpenseReports\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\ExpenseReports\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\ExpenseReports\Index.cshtml" />
   </ItemGroup>
 
 </Project>

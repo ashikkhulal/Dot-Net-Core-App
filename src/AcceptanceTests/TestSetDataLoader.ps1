@@ -9,7 +9,7 @@ $databaseUser = $env:DatabaseUser
 $databasePassword = $env:DatabasePassword
 $connection_string = "Server=tcp:$databaseServer,1433;Initial Catalog=$databaseName;Persist Security Info=False;User ID=$databaseUser;Password=$databasePassword;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
 
-$xpath = "//add[@name='Bootcamp']/@connectionString"
+$xpath = "//add[@key='ConnectionString']/@value"
 $filePath = Resolve-Path $configFile
 $value = $connection_string
 
@@ -29,4 +29,4 @@ Write-Host "DatabaseName: $DatabaseName"
 Write-Host "-----------------------"
 
 $nunitPath = ".\NUnit.Console.3.0.1\tools"
-& $nunitPath\nunit3-console.exe .\ClearMeasure.Bootcamp.IntegrationTests.dll --where "cat == DataLoader" --noheader 
+& $nunitPath\nunit3-console.exe .\ClearMeasure.OnionDevOpsArchitecture.AcceptanceTests.dll --where "cat == DataLoader" --noheader 

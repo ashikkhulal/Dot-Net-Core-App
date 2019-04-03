@@ -115,9 +115,6 @@ Function Pack{
 		& .\tools\octopack\Octo.exe pack --id "$projectName.Job" --version $version --basePath $jobProjectPath --outFolder $build_dir
 	}
 	exec{
-		& .\tools\octopack\Octo.exe pack --id "$projectName.IntegrationTests" --version $version --basePath $integrationTestProjectPath --outFolder $build_dir
-	}
-	exec{
 		& .\tools\octopack\Octo.exe pack --id "$projectName.AcceptanceTests" --version $version --basePath $acceptanceTestProjectPath --outFolder $build_dir
 	}
 }

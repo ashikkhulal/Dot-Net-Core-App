@@ -1,5 +1,5 @@
 #
-# AzureDataLoader.ps1
+# TestSetDataLoader.ps1
 #
 $path = $PSScriptRoot
 $configFile = "$path\ConnectionStrings.config"

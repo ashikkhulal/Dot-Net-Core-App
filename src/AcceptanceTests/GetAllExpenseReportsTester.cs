@@ -17,6 +17,7 @@ namespace ClearMeasure.OnionDevOpsArchitecture.AcceptanceTests
         {
             appURL = "http://localhost:54626";
             driver = new ChromeDriver(".");
+            new ZDataLoader().LoadLocalData();
         }
 
         [TearDown]

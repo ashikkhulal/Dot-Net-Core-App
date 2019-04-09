@@ -24,6 +24,3 @@ Run .\build.ps1 OR click_to_build.bat
 
 # Tips
 - Do not use .Net Core CI build steps - they compile your code multiple times and perform Nuget Restore 3 time over
-
-
-

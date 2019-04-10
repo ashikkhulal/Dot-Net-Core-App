@@ -10,6 +10,7 @@ $uiProjectPath = "$source_dir\UI"
 $jobProjectPath = "$source_dir\Job"
 $databaseProjectPath = "$source_dir\Database"
 $projectConfig = $env:BuildConfiguration
+$framework = "netcoreapp2.2"
 $version = $env:Version
 $verbosity = "m"
 
@@ -105,20 +106,29 @@ Function MigrateDatabaseRemote{
 
 Function Pack{
 	Write-Output "Packaging nuget packages"
-	exec{
-		& .\tools\octopack\Octo.exe pack --id "$projectName.UI" --version $version --basePath $uiProjectPath --outFolder $build_dir --overwrite
-	}
-	exec{
-		& .\tools\octopack\Octo.exe pack --id "$projectName.Database" --version $version --basePath $databaseProjectPath --outFolder $build_dir --overwrite
-	}
-	exec{
-		& .\tools\octopack\Octo.exe pack --id "$projectName.Job" --version $version --basePath $jobProjectPath --outFolder $build_dir --overwrite
-	}
     exec{
-        & dotnet publish $source_dir\AcceptanceTests -nologo --no-restore --no-build -v $verbosity --configuration $projectConfig
+        & dotnet publish $uiProjectPath -nologo --no-restore --no-build -v $verbosity --configuration $projectConfig
     }
 	exec{
-		& .\tools\octopack\Octo.exe pack --id "$projectName.AcceptanceTests" --version $version --basePath $acceptanceTestProjectPath\bin\$projectConfig\netcoreapp2.2\publish --outFolder $build_dir --overwrite
+		& .\tools\octopack\Octo.exe pack --id "$projectName.UI" --version $version --basePath $uiProjectPath\bin\$projectConfig\$framework\publish --outFolder $build_dir --overwrite
+	}
+
+    exec{
+		& .\tools\octopack\Octo.exe pack --id "$projectName.Database" --version $version --basePath $databaseProjectPath --outFolder $build_dir --overwrite
+	}
+
+    exec{
+        & dotnet publish $jobProjectPath -nologo --no-restore --no-build -v $verbosity --configuration $projectConfig
+    }
+	exec{
+		& .\tools\octopack\Octo.exe pack --id "$projectName.Job" --version $version --basePath $jobProjectPath\bin\$projectConfig\$framework\publish --outFolder $build_dir --overwrite
+	}
+
+    exec{
+        & dotnet publish $acceptanceTestProjectPath -nologo --no-restore --no-build -v $verbosity --configuration $projectConfig
+    }
+	exec{
+		& .\tools\octopack\Octo.exe pack --id "$projectName.AcceptanceTests" --version $version --basePath $acceptanceTestProjectPath\bin\$projectConfig\$framework\publish --outFolder $build_dir --overwrite
 	}
 }
 

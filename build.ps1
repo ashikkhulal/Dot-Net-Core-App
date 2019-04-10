@@ -106,16 +106,19 @@ Function MigrateDatabaseRemote{
 Function Pack{
 	Write-Output "Packaging nuget packages"
 	exec{
-		& .\tools\octopack\Octo.exe pack --id "$projectName.UI" --version $version --basePath $uiProjectPath --outFolder $build_dir
+		& .\tools\octopack\Octo.exe pack --id "$projectName.UI" --version $version --basePath $uiProjectPath --outFolder $build_dir --overwrite
 	}
 	exec{
-		& .\tools\octopack\Octo.exe pack --id "$projectName.Database" --version $version --basePath $databaseProjectPath --outFolder $build_dir
+		& .\tools\octopack\Octo.exe pack --id "$projectName.Database" --version $version --basePath $databaseProjectPath --outFolder $build_dir --overwrite
 	}
 	exec{
-		& .\tools\octopack\Octo.exe pack --id "$projectName.Job" --version $version --basePath $jobProjectPath --outFolder $build_dir
+		& .\tools\octopack\Octo.exe pack --id "$projectName.Job" --version $version --basePath $jobProjectPath --outFolder $build_dir --overwrite
 	}
+    exec{
+        & dotnet publish $source_dir\AcceptanceTests -nologo --no-restore --no-build -v $verbosity --configuration $projectConfig
+    }
 	exec{
-		& .\tools\octopack\Octo.exe pack --id "$projectName.AcceptanceTests" --version $version --basePath $acceptanceTestProjectPath --outFolder $build_dir
+		& .\tools\octopack\Octo.exe pack --id "$projectName.AcceptanceTests" --version $version --basePath $acceptanceTestProjectPath\bin\$projectConfig\netcoreapp2.2\publish --outFolder $build_dir --overwrite
 	}
 }
 

@@ -1,7 +1,7 @@
 ﻿$server = "$env:AppUrl"
 $uri = "$server/healthcheck"
 
-Write-Host "Smoke testing $env:AppUrl"
+Write-Host "Smoke testing $uri"
 
 Invoke-WebRequest $uri -UseBasicParsing | Foreach {
     $_.Content.Contains("Success") | Foreach {

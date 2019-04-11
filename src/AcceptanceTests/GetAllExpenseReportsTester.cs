@@ -1,3 +1,4 @@
+using System.Configuration;
 using ClearMeasure.OnionDevOpsArchitecture.Core.Model;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -15,7 +16,7 @@ namespace ClearMeasure.OnionDevOpsArchitecture.AcceptanceTests
         [SetUp]
         public void Setup()
         {
-            appURL = "http://localhost:54626";
+            appURL = ConfigurationManager.AppSettings["ConnectionString"];
             driver = new ChromeDriver(".");
             new ZDataLoader().LoadLocalData();
         }

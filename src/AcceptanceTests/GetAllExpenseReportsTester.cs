@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Reflection;
 using ClearMeasure.OnionDevOpsArchitecture.Core.Model;
 using ClearMeasure.OnionDevOpsArchitecture.IntegrationTests;
@@ -51,7 +52,8 @@ namespace ClearMeasure.OnionDevOpsArchitecture.AcceptanceTests
 
             Console.WriteLine($"Navigating to {_appUrl}");
             _driver.Navigate().GoToUrl(_appUrl + "/");
-            TakeScreenshot($"{expenseReportNumber}-Step1Arrange.png");
+            _driver.Manage().Window.Maximize();
+            TakeScreenshot($"{expenseReportNumber}-Step1Arrange");
 
             ClickLink("Add New");
             
@@ -59,21 +61,23 @@ namespace ClearMeasure.OnionDevOpsArchitecture.AcceptanceTests
             TypeText(nameof(ExpenseReport.Title), "some title");
             TypeText(nameof(ExpenseReport.Description), "some desc");
             
-            TakeScreenshot($"{expenseReportNumber}-Step2Act.png");
+            TakeScreenshot($"{expenseReportNumber}-Step2Act");
 
-            _driver.FindElement(By.TagName("button")).Click();
-            
+            _driver.FindElement(By.TagName("form")).Submit();
+
+            TakeScreenshot($"{expenseReportNumber}-Step3Assert");
+
             var numberCells = _driver.FindElements(
                 By.CssSelector($"td[data-expensereport-property=\"{nameof(ExpenseReport.Number)}\"][data-value=\"{expenseReportNumber}\"]"));
             numberCells.Count.ShouldBeGreaterThan(0);
             numberCells[0].Text.ShouldBe(expenseReportNumber);
             
-            TakeScreenshot($"{expenseReportNumber}-Step3Assert.png");
         }
 
         private void TakeScreenshot(string fileName)
         {
-            ((ChromeDriver) _driver).GetScreenshot().SaveAsFile(fileName);
+            var chromeDriver = ((ChromeDriver) _driver);
+            chromeDriver.GetScreenshot().SaveAsFile($"{fileName}.png");
         }
     }
 }

@@ -31,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database", "Database\Databa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcceptanceTests", "AcceptanceTests\AcceptanceTests.csproj", "{F5428B2B-785E-4833-AAE0-C27DECF4D01B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Job", "Job\Job.csproj", "{112870FC-1478-4287-B540-C1FFB69B2C17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Job", "Job\Job.csproj", "{112870FC-1478-4287-B540-C1FFB69B2C17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

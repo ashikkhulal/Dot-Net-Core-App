@@ -1,30 +1,26 @@
 ﻿@model ClearMeasure.OnionDevOpsArchitecture.Core.Model.ExpenseReport
+@{
+    ViewData["Title"] = "New Expense Report";
+}
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>New Expense Report</title>
-</head>
-<body>
-    <div>
-        @Html.ValidationSummary()
-        @using (Html.BeginForm())
-        {
-            <div>
-                @Html.LabelFor(report => report.Number)
-                @Html.EditorFor(report => report.Number)
-            </div>
-            <div>
-                @Html.LabelFor(report => report.Title)
-                @Html.EditorFor(report => report.Title)
-            </div>
-            <div>
-                @Html.LabelFor(report => report.Description)
-                @Html.EditorFor(report => report.Description)
-            </div>
-            <button type="submit">Save</button>
-        }
-    </div>
-</body>
-</html>
+<div>
+    @Html.ValidationSummary()
+    @using (Html.BeginForm())
+    {
+        <div>
+            @Html.LabelFor(report => report.Number, new{@class="col-2"})
+            @Html.EditorFor(report => report.Number, new{@class="col-10"})
+        </div>
+        <div>
+            @Html.LabelFor(report => report.Title, new{@class="col-2"})
+            @Html.EditorFor(report => report.Title, new{@class="col-10"})
+        </div>
+        <div>
+            @Html.LabelFor(report => report.Description, new{@class="col-2"})
+            @Html.EditorFor(report => report.Description, new{@class="col-10"})
+        </div>
+        <div>
+            <button type="submit" class="col-2 offset-2">Save</button>
+        </div>
+    }
+</div>

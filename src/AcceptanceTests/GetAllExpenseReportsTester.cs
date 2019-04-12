@@ -1,6 +1,4 @@
 using System;
-using System.Configuration;
-using System.Diagnostics;
 using System.Reflection;
 using ClearMeasure.OnionDevOpsArchitecture.Core.Model;
 using ClearMeasure.OnionDevOpsArchitecture.IntegrationTests;
@@ -13,24 +11,23 @@ namespace ClearMeasure.OnionDevOpsArchitecture.AcceptanceTests
 {
     public class GetAllExpenseReportsTester
     {
-        private string appURL;
-        private IWebDriver driver;
-        private TestContext testContextInstance;
+        private string _appUrl;
+        private IWebDriver _driver;
 
         [OneTimeSetUp]
         public void Setup()
         {
-            appURL = new DataConfigurationStub().GetValue("AppUrl", Assembly.GetExecutingAssembly());
-            driver = new ChromeDriver(".");
+            _appUrl = new DataConfigurationStub().GetValue("AppUrl", Assembly.GetExecutingAssembly());
+            _driver = new ChromeDriver(".");
             new ZDataLoader().LoadLocalData();
         }
 
         [OneTimeTearDown]
         public void Teardown()
         {
-            driver.Close();
-            driver.Quit();
-            driver.Dispose();
+            _driver.Close();
+            _driver.Quit();
+            _driver.Dispose();
         }
 
         [TestCase("000001", TestName = "Should add new expense report numbered '000001'")]
@@ -43,17 +40,17 @@ namespace ClearMeasure.OnionDevOpsArchitecture.AcceptanceTests
         {
             void ClickLink(string linkText)
             {
-                driver.FindElement(By.LinkText(linkText)).Click();
+                _driver.FindElement(By.LinkText(linkText)).Click();
             }
 
             void TypeText(string elementName, string text)
             {
-                var numberTextBox = driver.FindElement(By.Name(elementName));
+                var numberTextBox = _driver.FindElement(By.Name(elementName));
                 numberTextBox.SendKeys(text);
             }
 
-            Console.WriteLine($"Navigating to {appURL}");
-            driver.Navigate().GoToUrl(appURL + "/");
+            Console.WriteLine($"Navigating to {_appUrl}");
+            _driver.Navigate().GoToUrl(_appUrl + "/");
             TakeScreenshot($"{expenseReportNumber}-Step1Arrange.png");
 
             ClickLink("Add New");
@@ -64,9 +61,9 @@ namespace ClearMeasure.OnionDevOpsArchitecture.AcceptanceTests
             
             TakeScreenshot($"{expenseReportNumber}-Step2Act.png");
 
-            driver.FindElement(By.TagName("button")).Click();
+            _driver.FindElement(By.TagName("button")).Click();
             
-            var numberCells = driver.FindElements(
+            var numberCells = _driver.FindElements(
                 By.CssSelector($"td[data-expensereport-property=\"{nameof(ExpenseReport.Number)}\"][data-value=\"{expenseReportNumber}\"]"));
             numberCells.Count.ShouldBeGreaterThan(0);
             numberCells[0].Text.ShouldBe(expenseReportNumber);
@@ -76,7 +73,7 @@ namespace ClearMeasure.OnionDevOpsArchitecture.AcceptanceTests
 
         private void TakeScreenshot(string fileName)
         {
-            ((ChromeDriver) driver).GetScreenshot().SaveAsFile(fileName);
+            ((ChromeDriver) _driver).GetScreenshot().SaveAsFile(fileName);
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
+using System.IO;
+using System.Reflection;
 using ClearMeasure.OnionDevOpsArchitecture.Core;
 
 namespace ClearMeasure.OnionDevOpsArchitecture.IntegrationTests
@@ -7,9 +10,14 @@ namespace ClearMeasure.OnionDevOpsArchitecture.IntegrationTests
     {
         public string GetConnectionString()
         {
+            return GetValue("ConnectionString", Assembly.GetExecutingAssembly());   
+        }
+
+        public string GetValue(string key, Assembly configAssembly)
+        {
             return ConfigurationManager
-                .OpenExeConfiguration(@"ClearMeasure.OnionDevOpsArchitecture.IntegrationTests.dll")
-                .AppSettings.Settings["ConnectionString"].Value;
+                .OpenExeConfiguration(new FileInfo(configAssembly.Location).Name)
+                .AppSettings.Settings[key].Value;
         }
     }
 }

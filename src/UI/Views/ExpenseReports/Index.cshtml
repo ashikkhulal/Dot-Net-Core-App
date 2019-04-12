@@ -27,7 +27,7 @@
         {
             <tr>
                 <td>@Html.DisplayFor(reports => reports[i].Id)</td>
-                <td data-testhandle="@nameof(ExpenseReport.Number)">@Html.DisplayFor(reports => reports[i].Number)</td>
+                <td data-expensereport-property="@nameof(ExpenseReport.Number)" data-value="@Model[i].Number">@Html.DisplayFor(reports => reports[i].Number)</td>
                 <td>@Html.DisplayFor(reports => reports[i].Title)</td>
                 <td>@Html.DisplayFor(reports => reports[i].Description)</td>
                 <td>@Html.DisplayFor(reports => reports[i].FriendlyStatus)</td>

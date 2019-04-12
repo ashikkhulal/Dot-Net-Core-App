@@ -17,7 +17,7 @@ namespace ClearMeasure.OnionDevOpsArchitecture.AcceptanceTests
         private IWebDriver driver;
         private TestContext testContextInstance;
 
-        [SetUp]
+        [OneTimeSetUp]
         public void Setup()
         {
             appURL = new DataConfigurationStub().GetValue("AppUrl", Assembly.GetExecutingAssembly());
@@ -25,7 +25,7 @@ namespace ClearMeasure.OnionDevOpsArchitecture.AcceptanceTests
             new ZDataLoader().LoadLocalData();
         }
 
-        [TearDown]
+        [OneTimeTearDown]
         public void Teardown()
         {
             driver.Close();
@@ -33,31 +33,50 @@ namespace ClearMeasure.OnionDevOpsArchitecture.AcceptanceTests
             driver.Dispose();
         }
 
-        [Test]
-        public void ShouldBeAbleToAddNewExpenseReport()
+        [TestCase("000001", TestName = "Should add new expense report numbered '000001'")]
+        [TestCase("000010", TestName = "Should add new expense report numbered '000010'")]
+        [TestCase("000100", TestName = "Should add new expense report numbered '000100'")]
+        [TestCase("001000", TestName = "Should add new expense report numbered '001000'")]
+        [TestCase("010000", TestName = "Should add new expense report numbered '010000'")]
+        [TestCase("100000", TestName = "Should add new expense report numbered '100000'")]
+        public void ShouldBeAbleToAddNewExpenseReport(string expenseReportNumber)
         {
+            void ClickLink(string linkText)
+            {
+                driver.FindElement(By.LinkText(linkText)).Click();
+            }
+
+            void TypeText(string elementName, string text)
+            {
+                var numberTextBox = driver.FindElement(By.Name(elementName));
+                numberTextBox.SendKeys(text);
+            }
+
             Console.WriteLine($"Navigating to {appURL}");
             driver.Navigate().GoToUrl(appURL + "/");
-            var addNewLink = driver.FindElement(By.LinkText("Add New"));
-            ((ChromeDriver)driver).GetScreenshot().SaveAsFile($"Step1Arrange.png");
-            addNewLink.Click();
-            var numberTextBox = driver.FindElement(By.Name(nameof(ExpenseReport.Number)));
-            var titleTextBox = driver.FindElement(By.Name(nameof(ExpenseReport.Title)));
-            var descriptionTextBox = driver.FindElement(By.Name(nameof(ExpenseReport.Description)));
+            TakeScreenshot($"{expenseReportNumber}-Step1Arrange.png");
 
-            numberTextBox.SendKeys("000000");
-            titleTextBox.SendKeys("some title");
-            descriptionTextBox.SendKeys("some desc");
+            ClickLink("Add New");
+            
+            TypeText(nameof(ExpenseReport.Number), expenseReportNumber);
+            TypeText(nameof(ExpenseReport.Title), "some title");
+            TypeText(nameof(ExpenseReport.Description), "some desc");
+            
+            TakeScreenshot($"{expenseReportNumber}-Step2Act.png");
 
-            var submitButton = driver.FindElement(By.TagName("button"));
-            ((ChromeDriver)driver).GetScreenshot().SaveAsFile($"Step2Act.png");
-            submitButton.Click();
-
+            driver.FindElement(By.TagName("button")).Click();
+            
             var numberCells = driver.FindElements(
-                By.CssSelector($"td[data-testhandle={nameof(ExpenseReport.Number)}"));
+                By.CssSelector($"td[data-expensereport-property=\"{nameof(ExpenseReport.Number)}\"][data-value=\"{expenseReportNumber}\"]"));
             numberCells.Count.ShouldBeGreaterThan(0);
-            numberCells[0].Text.ShouldBe("000000");
-            ((ChromeDriver)driver).GetScreenshot().SaveAsFile($"Step3Assert.png");
+            numberCells[0].Text.ShouldBe(expenseReportNumber);
+            
+            TakeScreenshot($"{expenseReportNumber}-Step3Assert.png");
+        }
+
+        private void TakeScreenshot(string fileName)
+        {
+            ((ChromeDriver) driver).GetScreenshot().SaveAsFile(fileName);
         }
     }
 }

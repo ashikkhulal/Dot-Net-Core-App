@@ -8,7 +8,7 @@ namespace ClearMeasure.OnionDevOpsArchitecture.AcceptanceTests
     [TestFixture]
     public class ZDataLoader
     {
-        [Test, Category("DataLoader"), Explicit]
+        [Test, Category("DataLoader"), Ignore("only for local use")]
         public void LoadLocalData()
         {
             new IntegrationTests.ZDataLoader().LoadLocalData();

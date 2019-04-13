@@ -78,6 +78,7 @@ namespace ClearMeasure.OnionDevOpsArchitecture.AcceptanceTests
         {
             var chromeDriver = ((ChromeDriver) _driver);
             chromeDriver.GetScreenshot().SaveAsFile($"{fileName}.png");
+            TestContext.AddTestAttachment($"{fileName}.png");
         }
     }
 }

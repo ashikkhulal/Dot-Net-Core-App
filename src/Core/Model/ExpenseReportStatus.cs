@@ -78,7 +78,7 @@ namespace ClearMeasure.OnionDevOpsArchitecture.Core.Model
 
 			if (!GetType().Equals(obj.GetType())) return false;
 
-			return Code.Equals(code.Code);
+			return Code.Equals(code.Code, StringComparison.InvariantCulture);
 		}
 
 		public override string ToString()
@@ -98,7 +98,7 @@ namespace ClearMeasure.OnionDevOpsArchitecture.Core.Model
 
 	    public bool IsEmpty()
 		{
-			return Code == "";
+			return string.IsNullOrEmpty(Code);
 		}
 
 		public static ExpenseReportStatus FromCode(string code)
@@ -127,7 +127,7 @@ namespace ClearMeasure.OnionDevOpsArchitecture.Core.Model
 
 			if (match == null)
 			{
-				throw new ArgumentOutOfRangeException(string.Format("Key '{0}' is not a valid key for {1}", key, typeof(ExpenseReportStatus).Name));
+				throw new ArgumentOutOfRangeException($"Key '{key}' is not a valid key for {typeof(ExpenseReportStatus).Name}");
 			}
 
 			return match;
@@ -138,7 +138,9 @@ namespace ClearMeasure.OnionDevOpsArchitecture.Core.Model
 			return FromKey(name);
 		}
 
+#pragma warning disable CA2225 // Operator overloads have named alternates
         public static implicit operator ExpenseReportStatus(string code)
+#pragma warning restore CA2225 // Operator overloads have named alternates
         {
             return FromCode(code);
         }

@@ -7,25 +7,28 @@ namespace ClearMeasure.OnionDevOpsArchitecture.Core
     //Some code adapted from Mediatr (https://github.com/jbogard/MediatR)
     public delegate object SingleInstanceFactory(Type serviceType);
 
-    public class Bus
+    public partial class Bus
     {
         private readonly SingleInstanceFactory _singleInstanceFactory;
+        private readonly ITelemetrySink _telemetrySink;
 
-        public Bus()
+        private Bus()
         {
         }
 
-        public Bus(SingleInstanceFactory singleInstanceFactory)
+        public Bus(SingleInstanceFactory singleInstanceFactory, ITelemetrySink telemetrySink)
         {
             _singleInstanceFactory = singleInstanceFactory;
+            _telemetrySink = telemetrySink;
         }
 
         public virtual TResponse Send<TResponse>(IRequest<TResponse> request)
         {
-            Trace.WriteLine(string.Format("Message sent: {0}", request.GetType().FullName));
+            Trace.WriteLine(message: string.Format("Message sent: {0}", request.GetType().FullName));
             var defaultHandler = GetHandler(request);
 
             var result = defaultHandler.Handle(request);
+            _telemetrySink.RecordCall<TResponse>(request, result);
 
             return result;
         }

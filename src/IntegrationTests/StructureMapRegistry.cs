@@ -1,4 +1,5 @@
 ﻿using ClearMeasure.OnionDevOpsArchitecture.Core;
+using ClearMeasure.OnionDevOpsArchitecture.Core.AppStartup;
 using ClearMeasure.OnionDevOpsArchitecture.Core.Model;
 using ClearMeasure.OnionDevOpsArchitecture.DataAccess;
 using ClearMeasure.OnionDevOpsArchitecture.DataAccess.Mappings;
@@ -14,6 +15,7 @@ namespace ClearMeasure.OnionDevOpsArchitecture.IntegrationTests
             {
                 scanner.AssemblyContainingType<ExpenseReport>();
                 scanner.AssemblyContainingType<DataContext>();
+                scanner.AssemblyContainingType<TelemetrySink>();
                 scanner.WithDefaultConventions();
                 scanner.ConnectImplementationsToTypesClosing(typeof (IRequestHandler<,>));
             });

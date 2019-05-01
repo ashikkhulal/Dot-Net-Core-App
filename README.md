@@ -1,7 +1,7 @@
 [![Build status](https://dev.azure.com/clearmeasurelabs/Onion-DevOps-Architecture/_apis/build/status/Onion-DevOps-Architecture-CI)](https://dev.azure.com/clearmeasurelabs/Onion-DevOps-Architecture/_build/latest?definitionId=7)
 ![TDD status](https://vsrm.dev.azure.com/clearmeasurelabs/_apis/public/Release/badge/801ebfd3-bd0a-4c92-8080-1b73805b58d1/1/4)
-![UAT status](https://vsrm.dev.azure.com/clearmeasurelabs/_apis/public/Release/badge/801ebfd3-bd0a-4c92-8080-1b73805b58d1/1/2)
-![Prod status](https://vsrm.dev.azure.com/clearmeasurelabs/_apis/public/Release/badge/801ebfd3-bd0a-4c92-8080-1b73805b58d1/1/3)
+![UAT status](https://vsrm.dev.azure.com/clearmeasurelabs/_apis/public/Release/badge/801ebfd3-bd0a-4c92-8080-1b73805b58d1/1/6)
+![Prod status](https://vsrm.dev.azure.com/clearmeasurelabs/_apis/public/Release/badge/801ebfd3-bd0a-4c92-8080-1b73805b58d1/1/7)
 
 
 # Introduction 

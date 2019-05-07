@@ -3,12 +3,15 @@
 ![UAT status](https://vsrm.dev.azure.com/clearmeasurelabs/_apis/public/Release/badge/801ebfd3-bd0a-4c92-8080-1b73805b58d1/1/6)
 ![Prod status](https://vsrm.dev.azure.com/clearmeasurelabs/_apis/public/Release/badge/801ebfd3-bd0a-4c92-8080-1b73805b58d1/1/7)
 
-# Get the book
-http://www.lulu.com/shop/jeffrey-palermo/net-devops-for-azure/paperback/product-24077802.html
-This book is the preview edition released at the Microsoft Build conference. You can buy it now.
+# Get the book & other resources
+* ![Book Cover](https://static.lulu.com/browse/product_thumbnail.php?productId=24077802&resolution=320)
+* https://aka.ms/dotnetdevopsbook 
+  * This book is the preview edition released at the Microsoft Build conference. You can buy it now.
+* [Azure DevOps Podcast](http://www.azuredevops.show)
+* [Azure DevOps User Group](https://www.meetup.com/Azure-DevOps-User-Group/)
 
 # Introduction 
-Demonstrates how to set up .Net Core for DevOps with Azure, with professional patterns included:
+Demonstrates how to set up .Net Core for DevOps with Azure, with professional patterns including:
  * Private build
  * Test-driven development
  * Onion Architecture solution reference structure

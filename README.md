@@ -28,3 +28,14 @@ You will have the database created locally for you, and you are ready to CTRL+F5
 
 # Build and Test
 Run .\build.ps1 OR click_to_build.bat
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-63426635-5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-63426635-5');
+</script>

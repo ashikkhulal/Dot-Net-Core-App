@@ -7,6 +7,7 @@
 * ![Book Cover](https://static.lulu.com/browse/product_thumbnail.php?productId=24077802&resolution=320)
 * https://aka.ms/dotnetdevopsbook 
   * This book is the preview edition released at the Microsoft Build conference. You can buy it now.
+  * [Preview table of contents](https://dev.azure.com/clearmeasurelabs/801ebfd3-bd0a-4c92-8080-1b73805b58d1/_apis/git/repositories/101c3516-9d64-4757-8df5-547a7f4bbb49/Items?path=%2F.NET+DevOps+for+Azure+-+TOC.pdf&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=true&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
 * [Azure DevOps Podcast](http://www.azuredevops.show)
 * [Azure DevOps User Group](https://www.meetup.com/Azure-DevOps-User-Group/)
 

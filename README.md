@@ -6,10 +6,11 @@
 # Get the book & other resources
 * ![Book Cover](https://images-na.ssl-images-amazon.com/images/I/41oudHNH%2BeL._SX348_BO1,204,203,200_.jpg)
 * https://www.amazon.com/NET-DevOps-Azure-Developers-Architecture/dp/1484253426
-  * This book is the preview edition released at the Microsoft Build conference. You can buy it now.
+  * This book is the preview edition released at the Microsoft Build conference. You can pre-order it now.
   * [Preview table of contents](https://dev.azure.com/clearmeasurelabs/801ebfd3-bd0a-4c92-8080-1b73805b58d1/_apis/git/repositories/101c3516-9d64-4757-8df5-547a7f4bbb49/Items?path=%2F.NET+DevOps+for+Azure+-+TOC.pdf&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=true&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
 * [Azure DevOps Podcast](http://www.azuredevops.show)
 * [Azure DevOps User Group](https://www.meetup.com/Azure-DevOps-User-Group/)
+* [Clone this project template](https://dev.azure.com/clearmeasurelabs/801ebfd3-bd0a-4c92-8080-1b73805b58d1/_apis/git/repositories/b6025e0e-77dc-4b6b-af2b-dc16adeda1c4/Items?path=%2FOnionDevOpsArchitecture-dotnetcore2.2.zip)
 * [Azure DevOps Demo Generator template](https://dev.azure.com/clearmeasurelabs/Onion-DevOps-Architecture/_git/ProjectTemplates?path=%2FREADME.md&version=GBmaster)
 
 # Introduction 

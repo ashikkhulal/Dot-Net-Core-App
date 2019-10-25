@@ -1,8 +1,3 @@
-[![Build status](https://dev.azure.com/clearmeasurelabs/Onion-DevOps-Architecture/_apis/build/status/Onion-DevOps-Architecture-CI)](https://dev.azure.com/clearmeasurelabs/Onion-DevOps-Architecture/_build/latest?definitionId=7)
-![TDD status](https://vsrm.dev.azure.com/clearmeasurelabs/_apis/public/Release/badge/801ebfd3-bd0a-4c92-8080-1b73805b58d1/1/4)
-![UAT status](https://vsrm.dev.azure.com/clearmeasurelabs/_apis/public/Release/badge/801ebfd3-bd0a-4c92-8080-1b73805b58d1/1/6)
-![Prod status](https://vsrm.dev.azure.com/clearmeasurelabs/_apis/public/Release/badge/801ebfd3-bd0a-4c92-8080-1b73805b58d1/1/7)
-
 # Get the book & other resources
 * ![Book Cover](https://images-na.ssl-images-amazon.com/images/I/41oudHNH%2BeL._SX348_BO1,204,203,200_.jpg)
 * https://www.amazon.com/NET-DevOps-Azure-Developers-Architecture/dp/1484253426

@@ -5,6 +5,7 @@ $base_dir = resolve-path .\
 $source_dir = "$base_dir\src"
 $unitTestProjectPath = "$source_dir\UnitTests"
 $integrationTestProjectPath = "$source_dir\IntegrationTests"
+$appInsightsPath = "$source_dir\AppInsights"
 $acceptanceTestProjectPath = "$source_dir\AcceptanceTests"
 $uiProjectPath = "$source_dir\UI"
 $jobProjectPath = "$source_dir\Job"
@@ -129,6 +130,9 @@ Function Pack{
     }
 	exec{
 		& .\tools\octopack\Octo.exe pack --id "$projectName.AcceptanceTests" --version $version --basePath $acceptanceTestProjectPath\bin\$projectConfig\$framework\publish --outFolder $build_dir --overwrite
+	}
+	exec{
+		& .\tools\octopack\Octo.exe pack --id "$projectName.AppInsights" --version $version --basePath $appInsightsPath\ --outFolder $build_dir --overwrite
 	}
 }
 

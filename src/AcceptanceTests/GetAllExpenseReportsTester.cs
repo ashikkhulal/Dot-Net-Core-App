@@ -19,7 +19,9 @@ namespace ClearMeasure.OnionDevOpsArchitecture.AcceptanceTests
         public void Setup()
         {
             _appUrl = new DataConfigurationStub().GetValue("AppUrl", Assembly.GetExecutingAssembly());
-            _driver = new ChromeDriver(".");
+            _driver = new ChromeDriver(
+                Environment.GetEnvironmentVariable(
+                    "ChromeWebDriver"));
             new ZDataLoader().LoadLocalData();
         }
 

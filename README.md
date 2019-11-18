@@ -1,7 +1,4 @@
 # Get the book & other resources
-* ![Template Instructions]( (Onion DevOps Template Dotnet Core2 Azure PaaS Instructions.pdf)
-
-# Get the book & other resources
 * ![Book Cover](https://images-na.ssl-images-amazon.com/images/I/41oudHNH%2BeL._SX348_BO1,204,203,200_.jpg)
 * https://www.amazon.com/NET-DevOps-Azure-Developers-Architecture/dp/1484253426
   * This book is the preview edition released at the Microsoft Build conference. You can pre-order it now.

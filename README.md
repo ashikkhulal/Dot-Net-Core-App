@@ -18,6 +18,7 @@ Demonstrates how to set up .Net Core for DevOps with Azure, with professional pa
  * DevOps diagnostics
 # Getting Started
 Download the Onion DevOps Architecture .NET Core 2.2 Azure PaaS template [here](https://dev.azure.com/clearmeasurelabs/Onion-DevOps-dotnet-core2-azure-paas/_git/Onion-DevOps-Template-Dotnet-Core2-Azure-PaaS)
+
 Install SQL Express 2017 (localhost\sql2017) & Visual Studio 2019 (enabled w/ .NET Core 2.2)
 Clone the repository
 execute "click_to_build.bat" or PrivateBuild.ps1
